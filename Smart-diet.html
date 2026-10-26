@@ -1,0 +1,92 @@
+<DOCTYPE html!>
+  <html lang="ar"  dir="rtl">
+    <head>
+      <tittle>برنامج الغذاء الذكي</tittle>
+    <style>
+      body{background:white;
+           color:black;
+           text-align:center;
+           padding-top:50px;
+           font-family:arial;
+          }    
+           h1{color:red; font-size:45px;}
+      card{width:350px;
+           margin:auto;
+           background:#f9f9f9;
+           padding:25px;
+           border-radius:15px;
+           border:1px solid #ddd;
+           display:flex;
+           flex direction:column;
+           gap:12px;
+          }
+      label{color:black;
+            text-align:right;
+            font-weight:bold;
+           }
+      input,select{color:black;
+                   padding:10px;
+                   border:2px solid #ccc;
+                   border-radius:8px;
+                  }
+      button{background:red;
+             color:white;
+             padding:12px;
+             border:none;
+             border-radius:8px;
+             font-size:18px;
+             font-weight:bold;
+             cursor:pointer;
+             margin-top:5px;
+            }
+      button:hover{background:darkred;}
+      p{font-size:20px; color:black;}
+    </style>
+    </head>
+    <body>
+    <div class="card">
+      <h1>برنامج الغذاء الذكي</h1>
+
+      <label>الوزن بالكلجم</label>
+<input id="weight"  type="number">
+      <label>العمر</label>
+<input id="age"  type="number">
+      <label>الطول بالسم</label>
+<input id="height"  type="number">
+      <label>هل لديك أمراض مزمنة</label>
+<input id="disease"  type="text">
+      <label>هل لديك طعام لا تأكله</label>
+<input id="avoid"  type="text">
+      <label>الهدف من النظام</label>
+<select id="goal"></select>
+      <button id="btn">انشئ النظام الغذائي</button>
+      <div id="result"></div>
+    </div>
+ <script>
+   const goals=[
+     {value:"lose", text:"انقاص الوزن"},
+     {value:"gain", text:"زيادة الوزن" },
+     {value:"keep", text:"الحفاظ على الوزن"},
+     {value:"muscle", text:"بناء عضلات"},
+     ];
+   const goalSelect = document.getElementById("goal");
+   goals.forEach( g => {
+     let opt = document.createElement("option");
+     opt.value = g.value;
+     opt.textContent = g.text;
+     goalSelect.appendChild(opt);
+   });
+   document.getElementById("btn").onclick = function(){
+     let w =document.getElementById("weight").value;
+     let h =document.getElementById("height").value;
+     let result =document.getElementById("result");
+                                         }
+   if ( w ==" " | | h ==" "){
+     result innerHTML="<p style='color:red'>من فضلك املاء الفراغ</p>;
+   return;}
+   let bmi = (w/ ((h/100)*(h/100))).tofixed(1);
+   result.innerHTML=`<p>مؤشر كتلة الجسم BMI: ${bmi}</p>
+   <p>هدفك :${goalSelect.option[goalSelect.selectedIndex].text}</p>`;
+ </script>    
+    </body>
+  </html>
