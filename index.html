@@ -5,8 +5,8 @@
      <meta name="viewport"  content="width=device-width, initial-scale=1.0">
         <title>برنامج الغذاء الذكي</title>
         <style>
-          font-family: 'tahoma', sans-serif;
-          box-sizing: border-box;
+          *{box-sizing:border-box;
+          font-family: 'tahoma', sans-serif;}
           body{background:#f0f4f8;
                margin:0;
                padding:20px;
@@ -81,7 +81,7 @@
             <option value="زيادة عضلات">زيادة عضلات</option>
             <option value="تثبيت وزن">تثبيت وزن</option>
           </Select>
-          <button onclick="saveAndGo()">التالي</button>
+          <button id="nextBtn">التالي</button>
         </div>
       <script>
         window.onload = function(){
@@ -106,8 +106,9 @@
            localStorage.setItem("goal",goal);
 
            alert("تم حفظ البيانات بنجاح ✅");
-           window.location.href = 'index2.html';
-           document.querySelector("button").addEventListener("click",saveAndGo);
+           window.location.href ='index2.html';
+       };
+           document.getElementById("nextBtn").addEventListener("click",saveAndGo);
           </script>
     </body>
   </html>
