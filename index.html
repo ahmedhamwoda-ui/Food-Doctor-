@@ -91,7 +91,7 @@
             document.getElementById("goal").value = localStrage.getietm("goal") || "";}
          function  saveprofile(){
            let name =document.getElementById("name").value;
-           let sex =document.getElementById("gender").value;
+           let gender =document.getElementById("gender").value;
            let age =document.getElementById("age").value;
            let goal =document.getElementById("goal").value;}
            if(!userData.name ==" "||userData.gendar==" "||userData.age ==" "||userData.goal ==" "){
@@ -104,10 +104,10 @@
           alert("تم حفظ البيانات بنجاح ✅);
                 function gonext(){
             saveprofile();
-            window.location.href="page2.html";
+            window.location.href="index2.html";
             document.getElementById('profileForm').addEventListener('submit',function(e) {
             e.perventDefault();
-              saveAndGo();
+              saveAndGoNext();
         </script>
     </body>
   </html>
