@@ -66,7 +66,7 @@
       </div>
         <div class="field">
           <label>الجنس</label>
-          <input type="text" id="sex">
+          <input type="text" id="gendar">
         </div>
         <div class="field">
           <label>العمر</label>
@@ -81,31 +81,34 @@
             <option value="زيادة عضلات">زيادة عضلات</option>
             <option value="تثبيت وزن">تثبيت وزن</option>
           </Select>
-          <button class="btn" onclick="saveprofile()">احفظ البيانات</button>
-          <button type="submit" class="btn">التالي</button>
+          <button type="submit" class="btn">احفظ البيانات</button>
+          <button type="button" onclick="saveAndGo()">التالي</button>
         </div>
         <script>
           window.onload=function(){
             document.getElementById("name").value = localStrage.getitem("name") || "";
-            document.getElementById("sex").value = localStrage. getitem("sex") || "";
+            document.getElementById("gendar").value = localStrage. getitem("sex") || "";
             document.getElementById("age").value = localStrage.getitem("age") || "";
             document.getElementById("goal").value = localStrage.getietm("goal") || "";}
          function  saveprofile(){
            let name =document.getElementById("name").value;
-           let sex =document.getElementById("sex").value;
+           let sex =document.getElementById("gendar").value;
            let age =document.getElementById("age").value;
            let goal =document.getElementById("goal").value;}
-           if(name ==" "||sex ==" "||age ==" "||goal ==" "){
+           if(!userData.name ==" "||userData.gendar==" "||userData.age ==" "||userData.goal ==" "){
              alert("الرجاء ملء جميع الحقول");
              return;}
           localStorage.setItem("name",name);
-          localStorage.setItem("sex",sex);
+          localStorage.setItem("gendar",gendar);
           localStorage.setItem("age",age);
           localStorage.setItem("goal",goal);
           alert("تم حفظ البيانات بنجاح ✅);
                 function gonext(){
             saveprofile();
             window.location.href="page2.html";
+            document.getElementById('profileForm').addEventListener('submit',function(e) {
+            e.perventDefault();
+              saveAndGo();}
         </script>
     </body>
   </html>
