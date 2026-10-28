@@ -85,16 +85,16 @@
         </div>
         <script>
           window.onload=function(){
-            document.getElementById("name").value = localStrage.getitem("name") || "";
-            document.getElementById("gender").value = localStrage. getitem("geder") || "";
-            document.getElementById("age").value = localStrage.getitem("age") || "";
-            document.getElementById("goal").value = localStrage.getietm("goal") || "";}
+            document.getElementById("name").value = localStorage.getItem("name") || "";
+            document.getElementById("gender").value = localStorage.getItem("gender") || "";
+            document.getElementById("age").value = localStorage.getItem("age") || "";
+            document.getElementById("goal").value = localStorage.getItem("goal") || "";}
          function  saveAndGo(){
            let name =document.getElementById("name").value;
            let gender =document.getElementById("gender").value;
            let age =document.getElementById("age").value;
            let goal =document.getElementById("goal").value;}
-           if(!userData.name ==" "||userData.gendar==" "||userData.age ==" "||userData.goal ==" "){
+           if(name ==" "||gender==" "||age ==" "||goal ==" "){
              alert("الرجاء ملء جميع الحقول");
              return;}
           localStorage.setItem("name",name);
@@ -102,12 +102,7 @@
           localStorage.setItem("age",age);
           localStorage.setItem("goal",goal);
           alert("تم حفظ البيانات بنجاح ✅);
-                function gonext(){
-            saveprofile();
-            window.location.href='/Food-Doctor-/index2.html';
-            document.getElementById('profileForm').addEventListener('submit',function(e) {
-            e.perventDefault();
-              saveAndGo();
+            window.location.href='index2.html';
         </script>
     </body>
   </html>
