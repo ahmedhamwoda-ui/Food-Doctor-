@@ -81,7 +81,7 @@
             <option value="زيادة عضلات">زيادة عضلات</option>
             <option value="تثبيت وزن">تثبيت وزن</option>
           </Select>
-          <button onclick="saveAndGo()" class="btn">التالي</button>
+          <button onclick="saveAndGo()">التالي</button>
         </div>
       <script>
         window.onload = function(){
@@ -107,6 +107,7 @@
 
            alert("تم حفظ البيانات بنجاح ✅");
            window.location.href = 'index2.html';
+           document.querySelector("button").addEventListener("click",saveAndGo);
           </script>
     </body>
   </html>
