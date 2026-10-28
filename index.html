@@ -81,7 +81,7 @@
             <option value="زيادة عضلات">زيادة عضلات</option>
             <option value="تثبيت وزن">تثبيت وزن</option>
           </Select>
-          <button type="btn btn-next" onclick="saveAndGoNext()">التالي</button>
+          <button class="btn" onclick="saveAndGo()">التالي</button>
         </div>
         <script>
           window.onload=function(){
@@ -107,7 +107,7 @@
             window.location.href="index2.html";
             document.getElementById('profileForm').addEventListener('submit',function(e) {
             e.perventDefault();
-              saveAndGoNext();
+              saveAndGo();
         </script>
     </body>
   </html>
