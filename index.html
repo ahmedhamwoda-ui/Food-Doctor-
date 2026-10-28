@@ -66,7 +66,7 @@
       </div>
         <div class="field">
           <label>الجنس</label>
-          <input type="text" id="gendar">
+          <input type="text" id="gender">
         </div>
         <div class="field">
           <label>العمر</label>
@@ -86,19 +86,19 @@
         <script>
           window.onload=function(){
             document.getElementById("name").value = localStrage.getitem("name") || "";
-            document.getElementById("gendar").value = localStrage. getitem("sex") || "";
+            document.getElementById("gender").value = localStrage. getitem("geder") || "";
             document.getElementById("age").value = localStrage.getitem("age") || "";
             document.getElementById("goal").value = localStrage.getietm("goal") || "";}
          function  saveprofile(){
            let name =document.getElementById("name").value;
-           let sex =document.getElementById("gendar").value;
+           let sex =document.getElementById("gender").value;
            let age =document.getElementById("age").value;
            let goal =document.getElementById("goal").value;}
            if(!userData.name ==" "||userData.gendar==" "||userData.age ==" "||userData.goal ==" "){
              alert("الرجاء ملء جميع الحقول");
              return;}
           localStorage.setItem("name",name);
-          localStorage.setItem("gendar",gendar);
+          localStorage.setItem("gender",gender);
           localStorage.setItem("age",age);
           localStorage.setItem("goal",goal);
           alert("تم حفظ البيانات بنجاح ✅);
@@ -107,7 +107,7 @@
             window.location.href="page2.html";
             document.getElementById('profileForm').addEventListener('submit',function(e) {
             e.perventDefault();
-              saveAndGo();}
+              saveAndGo();
         </script>
     </body>
   </html>
