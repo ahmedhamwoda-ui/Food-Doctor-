@@ -1,113 +1,157 @@
-<DOCTYPE html!>
-  <html lang="ar"  dir="rtl">
-    <head>
-      <meta charset="UTF-8">
-     <meta name="viewport"  content="width=device-width, initial-scale=1.0">
-        <title>برنامج الغذاء الذكي</title>
-        <style>
-          *{box-sizing:border-box;
-          font-family: 'tahoma', sans-serif;}
-          body{background:#f0f4f8;
-               margin:0;
-               padding:20px;
-               display:flex;
-               justify-content:center;
-               align-items:center;
-               min-height:100vh;}
-          .container{background:white;
-                     width:100%;
-                     max-width:400px;
-                     padding:30px;
-                     border-radius:20px;
-                     box-shadow:0 4px 12px rgba(33,150,243,o.15);
-                     border-top: 5px solid #2196f3;}
-         h2{color:#1976d2;
-            text-align:center;
-            margin-bottom:25px;
-            font-size:24px;}
-          field{margin-bottom:20px;}
-          label{display:block;
-                margin-bottom:8px;
-                font-weight:bold;
-                color:#333;}
-          input,select{width:100%;
-                       padding:12px;
-                       border:2px solid #90caf9;
-                       border-radius:10px;
-                       font-size:16px;
-                       outline:none;
-                       transition:0.3s;}
-          input:focus,select:focus{
-            border-color:#2196f3;
-            box-shadow: 0 0 5px rgba(33,150,243,0.3);}
-          .btn{width:100%;
-               padding:14px;
-               background:#2196f3;
-               color:white;
-               border:none;
-               border-radius:12px;
-               font-size:18px;
-               font-weight:bold;
-               cursor:pointer;
-               margin-top:10px;
-               transition:0.3s;}
-          .btn:hover{background:#1976d2;
-                     transform: translate(-2px);}
-          .btn-next{background:#03a9f4;}
-          .btn-next:hover{background:#0288d1;}
-        </style>
-      </head>
-    <body>
-      <div class="container">
-        <h2>الملف الشخصي 👤</h2>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content=width=device
+    -width,initial-scale=1.0"/>
+    <title>برنامج الغذاء الذكي</title>
+    <style>
+      *{
+      box-sizing:border-box;
+      font-family:"Tahoma",
+      sans-serif;
+      }
+      body{
+        background:#fof4f8;
+        margin:0;
+        padding:20px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        main-height:100vh;
+      }
+      .container{
+        background:white;
+        width:100%;
+        max-width:400px;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 4px 12px
+        rgba(33,150,243,0.15);
+        border-top:5px solid
+        #2196f3;
+      }
+      h2{
+        color:#1976d2;
+        text-align:center;
+        margin-bottom:25px;
+        font-size:24px;
+      }
+      filed{
+        margin-bottom:20px;
+      }
+      label{
+        display:block;
+        margin-bottom:8px;
+        font-weight:bold;
+        color:#333;
+      }
+      input,
+      select{
+        width:100%;
+        padding:12px;
+        botder:2px solid #90caf9;
+        border-radius:10px;
+        font-size:16px;
+        outline:none;
+        trnsition:0.3s;
+      }
+      input:focus, 
+      select:focus{
+        border-color:#2196f3;
+        box-shadow:0 0 5px
+        rgba(33,50,243,0.3);
+      }
+      .btn{
+        width:100%;
+        padding:14px;
+        background:#2196f3;
+        color:white;
+        border:none;
+        border-radius:12px;
+        font-size:18px;
+        font-weight:bold;
+        cursor:pointer;
+        margin-top:10px;
+        transition:0.3s;
+      }
+      .btn:hover{
+        background:#1976d2;
+        trnsform:
+          translateX(-2px);
+      }
+      .btn-next{
+        background:#03a9f4;
+      }
+      .btn-next:hover{
+        background:#0288d1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>الملف الشخصي 👤</h2>
       <div class="field">
         <label>الاسم</label>
-        <input type="text" id="name">
+        <input type="text"
+          id="name"/>
       </div>
-        <div class="field">
-          <label>الجنس</label>
-          <input type="text" id="gender">
-        </div>
-        <div class="field">
-          <label>العمر</label>
-          <input type="number" id="age">
-        </div>
-        <div class="field">
-          <label>الهدف من النظام</label>
-          <Select id="goal">
-            <option value=" ">اختر الهدف</option>
-            <option value=" تنزيل وزن">تنزيل وزن</option>
-            <option value="زيادة وزن">زيادة وزن</option>
-            <option value="زيادة عضلات">زيادة عضلات</option>
-            <option value="تثبيت وزن">تثبيت وزن</option>
-          </Select>
-          <button id="nextBtn">التالي</button>
-        </div>
-      <script>
-        window.onload = function(){
-          document.getElementById("name").value = localStorage.getItem("name") || "";
-          document.getElementById("gender").value = localStorage.getItem("gender") || "";
-          document.getElementById("age").value = localStorage.getItem("age") || "";
-          document.getElementById("goal").value = localStorage.getItem("goal") || "";
-        };
-       function saveAndGo(){
-         let name = document.getElementById("name").value;
-         let gender = document.getElementById("gender").value;
-         let age = document.getElementById("age").value;
-         let goal = document.getElementById("goal").value;
-
-         if( name == "" || gender == "" || age == "" || goal == ""){
-           alert("الرجاء ملء جميع الحقول");
-
-           localStorage.setItem("name",name);
-           localStorage.setItem("gender",gender);
-           localStorage.setItem("age",age);
-           localStorage.setItem("goal",goal);
-
-           alert("تم حفظ البيانات بنجاح ✅");
-           window.location.href ='index2.html';
-       };
-           document.getElementById("nextBtn").addEventListener("click",saveAndGo);
-          </script>
-    </body>
-  </html>
+      <div class="field">
+        <label>الجنس </label>
+        <input type="text"
+          id="gender"/>
+      </div>
+      <div class="field">
+        <label>العمر</label>
+        <input type="number"
+          id="age"/>
+      </div>
+      <div class="field">
+        <label>الهدف من النظام</label>
+        <select id="goal">
+          <option value="">اختر الهدف</option>
+          <option value="تنزيل الوزن">تنزيل الوزن</option>
+          <option value="زيادة الوزن">زيادة الوزن</option>
+          <option value="زيادة عضلات">زيادة عضلات</option>
+          <option value="تثبيت الوزن">تثبيت الوزن</option>
+        </select>
+        <button type="button"
+          id="nextBtn" class="btn btn-next">التالي</button>
+      </div>
+    </div>
+    <script>
+      window.onload=function (){
+    document.getElementById("name").value=
+      localStorage.getItem("name") || "";
+    document.getElementById("gender").value=
+      localStorage.getItem("gender") || "";
+    document.getElementById("age").value=
+      localStorage.getItem("age") || "";
+    document.getElementById("goal").value=
+      localStorage.getItem("goal") || "";
+      };
+      function saveAndGo(){
+        const name=document.getElementById("name")
+        .value.trim();
+        const gender=document.getElementById("gender")
+        .value.trim();
+        const age=document.getElementById("age")
+        .value.trim();
+        const goal=document.getElementById("goal")
+        .value;
+        if(!name ||!gender ||!age ||!goal){
+          alert("الرجاء ملء جميع الحقول");
+          return;
+  }
+        localStorage.setItem("name",name);
+        localStorage.setItem("gender",gender);
+        localStorage.setItem("age",age);
+        localStorage.setItem("goal",goal);
+        alert("تم حفظ البيانات بنجاح✅");
+  window.location.href="index2.html";
+      }
+  document.getElementById("nextBtn").addEventlistener
+      ("click",saveAndGo);
+    </script>
+        </body>
+</html>
