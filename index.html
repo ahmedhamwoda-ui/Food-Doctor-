@@ -12,13 +12,13 @@
       sans-serif;
       }
       body{
-        background:#fof4f8;
+        background: #fof4f8;
         margin:0;
         padding:20px;
         display:flex;
         justify-content:center;
         align-items:center;
-        main-height:100vh;
+        min-height:100vh;
       }
       .container{
         background:white;
@@ -50,11 +50,11 @@
       select{
         width:100%;
         padding:12px;
-        botder:2px solid #90caf9;
+        border:2px solid #90caf9;
         border-radius:10px;
         font-size:16px;
         outline:none;
-        trnsition:0.3s;
+        transition:0.3s;
       }
       input:focus, 
       select:focus{
@@ -77,7 +77,7 @@
       }
       .btn:hover{
         background:#1976d2;
-        trnsform:
+        transform:
           translateX(-2px);
       }
       .btn-next{
@@ -150,7 +150,7 @@
         alert("تم حفظ البيانات بنجاح✅");
   window.location.href="index2.html";
       }
-  document.getElementById("nextBtn").addEventlistener
+  document.getElementById("nextBtn").addEventListener
       ("click",saveAndGo);
     </script>
         </body>
