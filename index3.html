@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>النظام الغذائي الخاص</title>
+    <style>
+      *{margin:0;
+        padding:0;
+        box-size:border-box;
+        font-family:"tahoma";
+       }
+      body{background:#f5f7fa;
+           min-height:100vh;
+           display:flex;
+           justify-content:center;
+           align-items:center;
+           padding:20px;
+          }
+      .container{background:white;
+                 width:100%;
+                 max-width:500px;
+                 padding:25px;
+                 border-radius:15px;
+                 box-shadow:0 4px 20px
+                   rgba(0,0,0,0.08);
+                 text-align:center;
+                }
+      h2{color:#1976d2;
+         font-size:24px;
+         margin-bottom:25px;
+        }
+      .info-box{background:#e3f2fd;
+                padding:20px;
+                border-radius:12px;
+                text-align:right; 
+                margin-bottom:20px;
+               }
+      .info-box p{font-size:17px;
+                  margin:12px 0;
+                  color:#333;
+                 }
+      .info-box b{color:#1976d2;}
+      .plan-box{background:#fff3e0;
+                padding:20px;
+                border-radius:12px;
+                text-align:right;
+                margin-bottom:20px;
+                border-right:4px solid #ff9800;
+               }
+      .plan-box h3{color: #e65100;
+                   margin-bottom:10px;
+                  }
+      .btn{background:#2196f3;
+           color:white;
+           border:none;
+           padding:14px;
+           width:100%;
+           border-radius:10px;
+           font-size:18px;
+           cursor:pointer;
+           margin-top:10px;
+          }
+      .btn:hover{background:#1976d2;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 id="welcome">مرحبا بك</h2>
+      <div class="info-box">
+        <p><b>الاسم:</b><span id="name"></span></p>
+        <p><b>الجنس:</b><span id="gender"></span></p>
+        <p><b>العمر:</b><span id="age"></span></p>
+        <p><b>الهدف:</b><span id="goal"></span></p>
+      </div>
+      <div class="plan-box">
+        <h3>تحضير نظام غذائي</h3>
+        <p id="plan">جاري تحضير نظام</p>
+      </div>
+      <button class="btn" onclick="localStorage.clear();window.location.href='index.html'">
+      </button>
+    </div>
+    <script>
+      document.getElementById("welcome").innerText="مرحبا"+localStorage.getItem("name");
+      document.getElementById("name").innerText=localStorage.getItem("name");
+      document.getElementById("gender").innerText=localStorage.getItem("gender");
+      document.getElementById("age").innerText=localStorage.getItem("age");
+      document.getElementById("goal").innerText=localStorage.getItem("goal");
+      let goal=localStorage.getItem("goal");
+      let age=localStorage.getItem("age");
+      let plan= "";
+      if (goal=="تنزيل الوزن"){
+       plan="1.شرب :٢لتر ماء يوميا
+          \n2.تقليل :السكر والخبز
+          \n3.الجري :٣٠دقيقة ٤مرات في الاسبوع";}
+      else if(goal=="زيادة الوزن"){
+        plan="1.زيادة معدل البروتين
+          \n2.تمارين ضغط ٣مرات يوميا
+          \n3.٤وجبات في اليوم";}
+      else if(goal=="تثبيت الوزن"){
+        plan="1.٨ساعات نوم 
+          \n2.تمارين متنوعة
+          \n3.٣وجبات في اليوم";}
+      document.getElementById("plan").innerText=plan;
+    </script>
+  </body>
+</html>
