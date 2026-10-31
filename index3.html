@@ -2,13 +2,13 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>النظام الغذائي الخاص</title>
+    <meta name="viewport" content="width=device-width,initial scale=1.0"/>
+    <title>نظامك الغذائي</title>
     <style>
       *{margin:0;
         padding:0;
-        box-size:border-box;
-        font-family:"tahoma";
+        box-sizing:border-box;
+        font-family:"Tahoma";
        }
       body{background:#f5f7fa;
            min-height:100vh;
@@ -17,13 +17,13 @@
            align-items:center;
            padding:20px;
           }
-      .container{background:white;
+      .container{background:white; 
                  width:100%;
                  max-width:500px;
                  padding:25px;
                  border-radius:15px;
                  box-shadow:0 4px 20px
-                   rgba(0,0,0,0.08);
+                 rgba(0,0,0,0.08);
                  text-align:center;
                 }
       h2{color:#1976d2;
@@ -33,7 +33,7 @@
       .info-box{background:#e3f2fd;
                 padding:20px;
                 border-radius:12px;
-                text-align:right; 
+                text-align:right;
                 margin-bottom:20px;
                }
       .info-box p{font-size:17px;
@@ -48,9 +48,10 @@
                 margin-bottom:20px;
                 border-right:4px solid #ff9800;
                }
-      .plan-box h3{color: #e65100;
+      .plan-box h3{color:#e65100;
                    margin-bottom:10px;
                   }
+      #plan{white-space:pre-line;}
       .btn{background:#2196f3;
            color:white;
            border:none;
@@ -74,33 +75,39 @@
         <p><b>الهدف:</b><span id="goal"></span></p>
       </div>
       <div class="plan-box">
-        <h3>تحضير نظام غذائي</h3>
-        <p id="plan">جاري تحضير نظام</p>
+        <h3>الجدول الغذائي الخاص بك</h3>
+        <p id="plan">تحضير جدول غذائي</p>
       </div>
-      <button class="btn" onclick="localStorage.clear();window.location.href='index.html'">
+      <button type="button" class="btn"
+        onclick="localStorage.clear();
+        window.location.href='index.html'">
       </button>
     </div>
     <script>
-      document.getElementById("welcome").innerText="مرحبا"+localStorage.getItem("name");
-      document.getElementById("name").innerText=localStorage.getItem("name");
-      document.getElementById("gender").innerText=localStorage.getItem("gender");
-      document.getElementById("age").innerText=localStorage.getItem("age");
-      document.getElementById("goal").innerText=localStorage.getItem("goal");
-      let goal=localStorage.getItem("goal");
-      let age=localStorage.getItem("age");
-      let plan= "";
-      if (goal=="تنزيل الوزن"){
-       plan="1.شرب :٢لتر ماء يوميا
-          \n2.تقليل :السكر والخبز
-          \n3.الجري :٣٠دقيقة ٤مرات في الاسبوع";}
-      else if(goal=="زيادة الوزن"){
-        plan="1.زيادة معدل البروتين
-          \n2.تمارين ضغط ٣مرات يوميا
-          \n3.٤وجبات في اليوم";}
-      else if(goal=="تثبيت الوزن"){
-        plan="1.٨ساعات نوم 
-          \n2.تمارين متنوعة
-          \n3.٣وجبات في اليوم";}
+      const name=localStorage.getItem("name")||"زائر";
+      const gender=localStorage.getItem("gender")||"غير محدد";
+      const age=localStorage.getItem("age")||"غير محدد";
+      const goal=localStorage.getItem("goal")||"";
+      document.getElementById("welcome").innerText= "مرحبا"+name;
+      document.getElementById("name").innerText=name;
+      document.getElementById("gender").innerText=gender;
+      document.getElementById("age").innerText=age;
+      document.getElementById("goal").innerText=goal;
+      let plan="";
+      if(goal==="تنزيل الوزن"){
+        plan="1.شرب ٢لتر ماء يوميا/n"+
+             "2.تقليل السكر والخبز/n"+
+             "3.الجري 30 دقيقة 4 مرات في الاسبوع";}
+      else if(goal==="زيادة الوزن"){
+        plan="1.زيادة معدل البروتين/n"+
+             "2.اكثر من النشويات/n"+
+             "3.شرب الماء 3 لي 4 لتر في اليوم";}
+      else if(goal==="تثبيت الوزن"){
+        plan="1. 8 ساعات نوم/n"+
+             "2.تمارين متنوعة/n"+
+             "3. 3 وجبات في اليوم";}
+      else{
+        plan="لم يتم تحديد الهدف بعد";}
       document.getElementById("plan").innerText=plan;
     </script>
   </body>
