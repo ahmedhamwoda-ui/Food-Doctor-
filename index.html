@@ -14,10 +14,6 @@
         background: #f0f4f8;
         margin:0;
         padding:20px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        min-height:100vh;
       }
       .container{
         background:white;
@@ -25,11 +21,32 @@
         max-width:400px;
         padding:30px;
         border-radius:20px;
+        margin:0 auto;
         box-shadow:0 4px 12px
         rgba(33,150,243,0.15);
         border-top:5px solid
         #2196f3;
       }
+      .navbar{display:flex;
+              justify-content:space-between;
+              align-items:center;
+              background:#2a6cff;
+              color:white;
+              padding:12px 20px;
+              border-radius:0 0 15px 15px;
+              width:100%;
+              max-width:400px;
+              margin-bottom:20px;
+             }
+      .icons{display:flex; gap:15px;}
+      .icon{color:white;
+            text-decoration:none;
+            font-size:22px;
+            background: rgba(255,255,255,0.2);
+            padding:8px 12px;
+            border-radius:50%;
+           }
+      .icon:hover{background:rgba(255,255,255,0.4);}
       h2{
         color:#1976d2;
         text-align:center;
@@ -88,6 +105,13 @@
     </style>
   </head>
   <body>
+    <header class="navbar">
+      <h1>طبيب الغذاء</h1>
+      <div class="icons">
+      <a href="chat.html" class="icon">💬</a>
+      <a href="profile.html" class="icon">👤</a>
+      </div>
+    </header>
     <div class="container">
       <h2>الملف الشخصي 👤</h2>
       <div class="field">
