@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width=scale=1.0"/>
+  <head>
+    <title>الملف الشخصي -طبيب الغذاء</title>
+    <style>
+      body{background:#f0f4f8;
+           margin:0;
+           padding:20px;
+           font-family:sans-serif;
+          }
+      .navbar{display:flex;
+              justify-content:space-between;
+              align-items:center;
+              background:#2e6cff;
+              color:white;
+              padding:12px 20px;
+              border-radius:0 0 15px 15px;
+              width:100%;
+              max-width:400px;
+              margin:0 auto 20px;
+             }
+      .icons{display:flex; gap:15px;}
+      .icon{color:white;
+            text-decoration:none;
+            font-size:22px;
+            background:rgba(255,255,255,0.2);
+            padding:8px 12px;
+            border-radius:50%;
+           }
+      .container{background:white;
+                 width:100%;
+                 max-width:400px;
+                 padding:30px;
+                 border-radius:30px;
+                 margin:0 auto;
+                 box-shadow:0 4px 15px rgba(0,0,0,0.1);
+                }
+      .info-item{margin-bottom:15px;
+                 padding:15px;
+                 background:#f8f9fa;
+                 border-radius:10px;
+                 font-size:16px;
+                }
+      .info-item b{color:#2e6cff;}
+      .btn-back{display:block;
+                text-align:center;
+                margin-top:20px;
+                padding:20px;
+                background:#2e6cff;
+                color:white;
+                text-decoration:none;
+                border-radius:10px;
+               }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>طبيب الغذاء</h1>
+      <div class="icons">
+        <a href="index.html" class="icon">🏠</a>
+        <span class="icon">👤</span>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>الملف الشخصي 👤</h2>
+      <div class="info-item"><b>الاسم:</b><span id="name">-</span></div>
+      <div class="info-item"><b>الجنس:</b><span id="gender">-</span></div>
+      <div class="info-item"><b>العمر:</b><span id="age">-</span> سنة</div>
+      <div class="info-item"><b>الوزن:</b><span id="weight">-</span>كلجم </div>
+      <div class="info-item"><b>أمراض مزمنة:</b><span id="disease"></span></div>
+      <div class="info-item"><b>الهدف:</b><span id="goal"></span></div>
+      <a href="index.html" class="btn-back">تعديل البيانات</a>
+    </div>
+
+    <script>
+      window.onlaod = function (){
+       document.getElementById("name").innerText= localStorage.getItem("name")||"غير محدد";
+       document.getElementById("gender").innerText= localStorage.getItem("gender")||"غير محدد";
+       document.getElementById("age").innerText= localStorage.getItem("age")||"0";
+       document.getElementById("weight").innerText= localStorage.getItem("weight")||"0";
+       document.getElementById("disease").innerText= localStorage.getItem("disease")||"لا يوجد";
+       document.getElementById("goal").innerText= localStorage.getItem("goal")||"غير محدد";
+        
+    </script>
+  </body>
+</html>
+  
