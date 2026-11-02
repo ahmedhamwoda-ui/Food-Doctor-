@@ -28,26 +28,33 @@
         width: 100%;
         max-width: 450px;
       }
-      .navbar{display:flex;
+      .topbar{display:flex;
               justify-content:space-between;
               align-items:center;
               background:#2e6cff;
               color:white;
               padding:12px 20px;
-              border-radius:0 0 15px 15px;
-              width:100%;
-              max-width:400px;
-              margin-bottom:20px;
-             }
-      .icons{display:flex; gap:15px;}
-      .icon{color:white;
-            text-decoration:none;
-            font-size:22px;
-            background:rgba(255,255,255,0.2);
-            padding:8px 12px;
-            border-radius:50%;
-           }
-      .icon:hover{background:rgba(255,255,255,0.4);}
+              border-radius:0 0 15px 15px
+      }
+      .brand{display:flex;
+             align-items:center;
+             gap:12px;
+            }
+      .brand-mark{font-size:24px;}
+      .nav-icons{display:flex;
+                gap:10px;
+                }
+      .icon-btn{width:40px;
+                height:40px;
+                border-radius:50%;
+                background:rgba(255,255,255,0.2);
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                text-decoration:none;
+                font-size:20px;
+                color:white;
+               }
       h2 {
         color: #667eea;
         text-align: center;
@@ -102,11 +109,14 @@
   </head>
 
   <body>
-    <header class="navbar">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">🥗</div>
       <h1>طبيب الغذاء</h1>
-      <div class="icon">
-        <a href="chat.html" class="icon">💬</a>
-        <a href="profile.html" class="icon">👤</a>
+      </div>
+      <div class="nav-icons">
+        <a href="chat.html" class="icon-btn">💬</a>
+        <a href="profile.html" class="icon-btn">👤</a>
       </div>
     </header>
     <div class="container">
