@@ -1,187 +1,188 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>برنامج الغذاء الذكي</title>
     <style>
-      *{
-      box-sizing:border-box;
-      font-family:"Tahoma",
-      sans-serif;
+      * { box-sizing: border-box; font-family: Tahoma, sans-serif; }
+      body { background: #f0f4f8; margin: 0; padding: 20px; }
+      .topbar {
+        display: flex; justify-content: space-between; align-items: center;
+        background: #2e6cff; color: white; padding: 12px 20px;
+        border-radius: 0 0 15px 15px; margin: -20px -20px 30px;
       }
-      body{
-        background: #f0f4f8;
-        margin:0;
-        padding:20px;
+      .brand, .nav-icons { display: flex; align-items: center; gap: 10px; }
+      .brand-mark { font-size: 24px; }
+      .topbar h1 { font-size: 22px; margin: 0; }
+      .icon-btn {
+        width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255,255,255,.2); display: flex; align-items: center;
+        justify-content: center; text-decoration: none; font-size: 20px; color: white;
       }
-      .container{
-        background:white;
-        width:100%;
-        max-width:400px;
-        padding:30px;
-        border-radius:20px;
-        margin:0 auto;
-        box-shadow:0 4px 12px
-        rgba(33,150,243,0.15);
-        border-top:5px solid
-        #2196f3;
+      .container {
+        background: white; width: 100%; max-width: 420px; min-height: 350px;
+        padding: 30px; border-radius: 20px; margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(33,150,243,.15); border-top: 5px solid #2196f3;
       }
-      .topbar{display:flex;
-              justify-content:space-between;
-              align-items:center;
-              background:#2e6cff;
-              color:white;
-              padding:12px 20px;
-              border-radius:0 0 15px 15px;
-             }
-      .brand{display:flex;
-             align-items:center;
-             gap:12px;
-             .brand-mark{font-size:24px;}
-             .nav-icon{display:flex;
-                       gap:10px;
-                      }
-      .icon-btn{width:40px;
-               height:40px;
-               border-radius:50%;
-               background:rgba(255,255,255,0.2);
-               display:flex;
-               align-items:center;
-              justify-content:senter;
-              text-decoration:none;
-               font-size:20px;
-              color:white;
-               }
-      h2{
-        color:#1976d2;
-        text-align:center;
-        margin-bottom:25px;
-        font-size:24px;
+      h2 { color: #1976d2; text-align: center; margin: 0 0 12px; font-size: 24px; }
+      .step-count { color: #607d8b; text-align: center; margin: 0 0 30px; }
+      .field { margin-bottom: 20px; }
+      label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+      input, select {
+        width: 100%; padding: 12px; border: 2px solid #90caf9;
+        border-radius: 10px; font-size: 16px; outline: none; transition: .3s;
       }
-      field{
-        margin-bottom:20px;
+      input:focus, select:focus {
+        border-color: #2196f3; box-shadow: 0 0 5px rgba(33,50,243,.3);
       }
-      label{
-        display:block;
-        margin-bottom:8px;
-        font-weight:bold;
-        color:#333;
+      .actions { display: flex; gap: 10px; margin-top: 24px; }
+      .btn {
+        flex: 1; padding: 14px; background: #2196f3; color: white; border: none;
+        border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer;
       }
-      input,
-      select{
-        width:100%;
-        padding:12px;
-        border:2px solid #90caf9;
-        border-radius:10px;
-        font-size:16px;
-        outline:none;
-        transition:0.3s;
-      }
-      input:focus, 
-      select:focus{
-        border-color:#2196f3;
-        box-shadow:0 0 5px
-        rgba(33,50,243,0.3);
-      }
-      .btn{
-        width:100%;
-        padding:14px;
-        background:#2196f3;
-        color:white;
-        border:none;
-        border-radius:12px;
-        font-size:18px;
-        font-weight:bold;
-        cursor:pointer;
-        margin-top:10px;
-        transition:0.3s;
-      }
-      .btn:hover{
-        background:#1976d2;
-        transform:
-          translateX(-2px);
-      }
-      .btn-next{
-        background:#03a9f4;
-      }
-      .btn-next:hover{
-        background:#0288d1;
+      .btn:hover { background: #1976d2; }
+      .btn-secondary { background: #78909c; }
+      .btn-secondary:hover { background: #607d8b; }
+      [hidden] { display: none !important; }
+      @media (max-width: 480px) {
+        body { padding: 14px; }
+        .topbar { margin: -14px -14px 24px; }
+        .container { padding: 24px; }
       }
     </style>
   </head>
   <body>
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark">🥗</div>
-      <h1>طبيب الغذاء</h1>
-      <div class="nav-icons">
-      <a href="chat.html" class="icon-btn">💬</a>
-      <a href="profile.html" class="icon-btn">👤</a>
+        <span class="brand-mark">🥗</span>
+        <h1>طبيب الغذاء</h1>
       </div>
+      <nav class="nav-icons" aria-label="روابط الموقع">
+        <a href="chat.html" class="icon-btn" aria-label="المحادثة">💬</a>
+        <a href="profile.html" class="icon-btn" aria-label="الملف الشخصي">👤</a>
+      </nav>
     </header>
-    <div class="container">
+
+    <main class="container">
       <h2>الملف الشخصي 👤</h2>
-      <div class="field">
-        <label>الاسم</label>
-        <input type="text"
-          id="name"/>
-      </div>
-      <div class="field">
-        <label>الجنس </label>
-        <input type="text"
-          id="gender"/>
-      </div>
-      <div class="field">
-        <label>العمر</label>
-        <input type="number"
-          id="age"/>
-      </div>
-      <div class="field">
-        <label>الهدف من النظام</label>
-        <select id="goal">
-          <option value="">اختر الهدف</option>
-          <option value="تنزيل الوزن">تنزيل الوزن</option>
-          <option value="زيادة الوزن">زيادة الوزن</option>
-          <option value="زيادة عضلات">زيادة عضلات</option>
-          <option value="تثبيت الوزن">تثبيت الوزن</option>
-        </select>
-        <button type="button"
-          id="nextBtn" class="btn btn-next">التالي</button>
-      </div>
-    </div>
+      <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 8</p>
+
+      <form id="profileForm">
+        <section class="step">
+          <div class="field">
+            <label for="name">الاسم</label>
+            <input type="text" id="name" autocomplete="name" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="gender">الجنس</label>
+            <select id="gender" required>
+              <option value="">اختر الجنس</option>
+              <option value="ذكر">ذكر</option>
+              <option value="أنثى">أنثى</option>
+            </select>
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="age">العمر</label>
+            <input type="number" id="age" min="1" max="120" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="weight">الوزن (كجم)</label>
+            <input type="number" id="weight" min="1" max="500" step="0.1" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="height">الطول (سم)</label>
+            <input type="number" id="height" min="50" max="250" step="0.1" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="country">البلد</label>
+            <input type="text" id="country" autocomplete="country-name" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" autocomplete="email" required />
+          </div>
+        </section>
+        <section class="step" hidden>
+          <div class="field">
+            <label for="goal">الهدف من النظام</label>
+            <select id="goal" required>
+              <option value="">اختر الهدف</option>
+              <option value="تنزيل الوزن">تنزيل الوزن</option>
+              <option value="زيادة الوزن">زيادة الوزن</option>
+              <option value="زيادة عضلات">زيادة عضلات</option>
+              <option value="تثبيت الوزن">تثبيت الوزن</option>
+            </select>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="button" id="backBtn" class="btn btn-secondary" hidden>السابق</button>
+          <button type="button" id="nextBtn" class="btn">التالي</button>
+          <button type="submit" id="saveBtn" class="btn" hidden>حفظ والمتابعة</button>
+        </div>
+      </form>
+    </main>
+
     <script>
-      window.onload=function (){
-    document.getElementById("name").value=
-      localStorage.getItem("name") || "";
-    document.getElementById("gender").value=
-      localStorage.getItem("gender") || "";
-    document.getElementById("age").value=
-      localStorage.getItem("age") || "";
-    document.getElementById("goal").value=
-      localStorage.getItem("goal") || "";
-      };
-      function saveAndGo(){
-        const name=document.getElementById("name")
-        .value.trim();
-        const gender=document.getElementById("gender")
-        .value.trim();
-        const age=document.getElementById("age")
-        .value.trim();
-        const goal=document.getElementById("goal")
-        .value;
-        if(!name ||!gender ||!age ||!goal){
-          alert("الرجاء ملء جميع الحقول");
-          return;
-  }
-        localStorage.setItem("name",name);
-        localStorage.setItem("gender",gender);
-        localStorage.setItem("age",age);
-        localStorage.setItem("goal",goal);
-        alert("تم حفظ البيانات بنجاح✅");
-  window.location.href="index2.html";
+      const steps = Array.from(document.querySelectorAll(".step"));
+      const stepCount = document.getElementById("stepCount");
+      const backBtn = document.getElementById("backBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const form = document.getElementById("profileForm");
+      const fieldIds = ["name", "gender", "age", "weight", "height", "country", "email", "goal"];
+      let currentStep = 0;
+
+      fieldIds.forEach((id) => {
+        document.getElementById(id).value = localStorage.getItem(id) || "";
+      });
+
+      function showStep(index) {
+        currentStep = index;
+        steps.forEach((step, stepIndex) => {
+          step.hidden = stepIndex !== currentStep;
+        });
+        stepCount.textContent = `الخطوة ${currentStep + 1} من ${steps.length}`;
+        backBtn.hidden = currentStep === 0;
+        nextBtn.hidden = currentStep === steps.length - 1;
+        saveBtn.hidden = currentStep !== steps.length - 1;
+        steps[currentStep].querySelector("input, select").focus();
       }
-  document.getElementById("nextBtn").addEventListener("click",saveAndGo);
+
+      function saveCurrentField() {
+        const field = steps[currentStep].querySelector("input, select");
+        if (!field.reportValidity()) return false;
+        localStorage.setItem(field.id, field.value.trim());
+        return true;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (saveCurrentField()) showStep(currentStep + 1);
+      });
+
+      backBtn.addEventListener("click", () => showStep(currentStep - 1));
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!saveCurrentField()) return;
+        alert("تم حفظ البيانات بنجاح✅");
+        window.location.href = "index2.html";
+      });
+
+      showStep(0);
     </script>
-        </body>
+  </body>
 </html>
