@@ -131,7 +131,42 @@
       </div>
         <div id="page2" hidden>
           <h2>البيانات الصحية </h2>
-          
+          <section class="step" hidden>
+            <div class="field">
+              <label for="diseases">الأمراض المزمنة </label>
+              <input type="text" id="diseases">
+            </div>
+          <div class="field">
+            <label for="activity">النشاط اليومي 🏃‍♂️</label>
+            <select id="activity" required>
+              <option value="">اختر مستوى النشاط</option>
+              <option value="low">قليل الحركة 🚶‍♂️</option>
+              <option value="medium">متوسط نشاط 🏃‍♂️</option>
+              <option value="high">نشاط مرتفع 🚴‍♂️</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="food">المعلومات الغذائية </label>
+            <select id="food" required>
+             <option value="">اختر نظامك الغذائي</option>
+              <option value="normal">غذاء متنوع</option>
+              <option value="vegetarian">نباتي</option>
+              <option value="low-carb">قليل الكربوهيدرات</option>
+              <option value="other">نظام آخر</option>
+            </select>
+          </div>
+            <div class="field">
+              <label for="cuisine">نوع المطبخ المفضل 🥗</label>
+              <select id="cuisine">
+              <option value="">اختار المطبخ🍽</option>
+                <option value="arabic">عربي 🥘</option>
+                <option value="western">غربي 🍔</option>
+                <option value="french">فرنسي 🥐</option>
+                <option value="Asian">آسيوي 🍲</option>
+                <option value="mixed">متنوع 🍽</option>
+              </select>
+            </div>
+          </section>
         </div>
         <div class="actions">
           <button type="button" id="backBtn" class="btn btn-secondary" hidden>السابق</button>
@@ -142,6 +177,8 @@
     </main>
 
     <script>
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
       const steps = Array.from(document.querySelectorAll(".step"));
       const stepCount = document.getElementById("stepCount");
       const backBtn = document.getElementById("backBtn");
@@ -160,6 +197,11 @@
         steps.forEach((step, stepIndex) => {
           step.hidden = stepIndex !== currentStep;
         });
+        const currentStepElement =steps[currentStep];
+        page1.hidden =!
+          page1.contains(currentStepElement);
+        page2.hidden =!
+          page2.contains(currentStepElement);
         stepCount.textContent = `الخطوة ${currentStep + 1} من ${steps.length}`;
         backBtn.hidden = currentStep === 0;
         nextBtn.hidden = currentStep === steps.length - 1;
@@ -168,8 +210,10 @@
       }
 
       function saveCurrentField() {
-        const field = steps[currentStep].querySelector("input, select");
-        if (!field.reportValidity()) return false;
+        const fields = steps[currentStep].querySelector("input, select");
+        for (const field of fields){
+          if (field.required && ! field.reportValidity()) return false;
+      }
         localStorage.setItem(field.id, field.value.trim());
         return true;
       }
