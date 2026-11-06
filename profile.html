@@ -251,7 +251,7 @@
 
       <main class="profile-card">
         <div class="profile-header">
-          <div class="avatar">👤</div>
+          <div class="avatar" id="avatar-letter">👤</div>
 
           <div class="profile-user">
             <h2 id="name-display">غير محدد</h2>
@@ -270,8 +270,8 @@
             <span>الوزن</span>
           </div>
           <div class="stat-box">
-            <strong id="gender-box">-</strong>
-            <span>الجنس</span>
+            <strong id="height-box">0</strong>
+            <span>الطول</span>
           </div>
         </div>
 
@@ -299,19 +299,42 @@
               <span class="value" id="height">0 سم</span>
             </div>
             <div class="info-item">
-              <span class="label">أمراض مزمنة</span>
-              <span class="value" id="disease">لا يوجد</span>
+              <span class="label">البلد</span>
+              <span class="value" id="country">غير محدد</span>
+            </div>
+            <div class="info-item">
+              <span class="label">البريد الإلكتروني@</span>
+              <span class="value" id="email">غير محدد</span>
             </div>
             <div class="info-item">
               <span class="label">الهدف</span>
               <span class="value" id="goal">غير محدد</span>
             </div>
           </div>
-        </div>
-
+            <div class="section">
+              <h3 class="section-title">المعلومات الصحية</h3>
+              <div class="info-list">
+                <div class="info-item">
+                  <span class="label">الأمراض المزمنة</span>
+                  <span class="value" id="diseases">لا يوجد</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">النشاط اليومي 🏃‍♂️</span>
+                  <span class="value" id="activity">غير محدد</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">النظام الغذائي</span>
+                  <span class="value" id="food">غير محدد</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">المطبخ المفضل</span>
+                  <span class="value" id="cuisine">غير محدد</span>
+                </div>
         <div class="actions">
           <a href="index.html" class="btn-back">تعديل البيانات</a>
         </div>
+              </div>
+            </div>
       </main>
     </div>
 
@@ -326,7 +349,7 @@
         const gender = getValue('gender', 'غير محدد');
         const age = getValue('age', '0');
         const weight = getValue('weight', '0');
-        const disease = getValue('disease', 'لا يوجد');
+        const diseases = getValue('diseases, 'لا يوجد');
         const goal = getValue('goal', 'غير محدد');
 
         document.getElementById('name').textContent = name;
@@ -334,7 +357,7 @@
         document.getElementById('gender').textContent = gender;
         document.getElementById('age').textContent = age + ' سنة';
         document.getElementById('weight').textContent = weight + ' كجم';
-        document.getElementById('disease').textContent = disease;
+        document.getElementById('diseases').textContent = disease;
         document.getElementById('goal').textContent = goal;
 
         document.getElementById('age-box').textContent = age;
