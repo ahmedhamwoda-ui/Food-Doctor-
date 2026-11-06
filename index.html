@@ -66,99 +66,99 @@
 
     <main class="container">
       <form id="profileForm">
-      <div id="page1">
-      <h2>الملف الشخصي 👤</h2>
-      <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 8</p>
-
-        <section class="step">
-          <div class="field">
-            <label for="name">الاسم</label>
-            <input type="text" id="name" autocomplete="name" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="gender">الجنس</label>
-            <select id="gender" required>
-              <option value="">اختر الجنس</option>
-              <option value="ذكر">ذكر</option>
-              <option value="أنثى">أنثى</option>
-            </select>
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="age">العمر</label>
-            <input type="number" id="age" min="1" max="120" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="weight">الوزن (كجم)</label>
-            <input type="number" id="weight" min="1" max="500" step="0.1" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="height">الطول (سم)</label>
-            <input type="number" id="height" min="50" max="250" step="0.1" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="country">البلد</label>
-            <input type="text" id="country" autocomplete="country-name" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="email">البريد الإلكتروني</label>
-            <input type="email" id="email" autocomplete="email" required />
-          </div>
-        </section>
-        <section class="step" hidden>
-          <div class="field">
-            <label for="goal">الهدف من النظام</label>
-            <select id="goal" required>
-              <option value="">اختر الهدف</option>
-              <option value="تنزيل الوزن">تنزيل الوزن</option>
-              <option value="زيادة الوزن">زيادة الوزن</option>
-              <option value="زيادة عضلات">زيادة عضلات</option>
-              <option value="تثبيت الوزن">تثبيت الوزن</option>
-            </select>
-          </div>
-        </section>
-      </div>
-        <div id="page2" hidden>
-          <h2>البيانات الصحية </h2>
+        <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 9</p>
+        <div id="page1">
+          <h2>الملف الشخصي 👤</h2>
+          <section class="step">
+            <div class="field">
+              <label for="name">الاسم</label>
+              <input type="text" id="name" autocomplete="name" required />
+            </div>
+          </section>
           <section class="step" hidden>
             <div class="field">
-              <label for="diseases">الأمراض المزمنة </label>
-              <input type="text" id="diseases">
+              <label for="gender">الجنس</label>
+              <select id="gender" required>
+                <option value="">اختر الجنس</option>
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+              </select>
             </div>
-          <div class="field">
-            <label for="activity">النشاط اليومي 🏃‍♂️</label>
-            <select id="activity" required>
-              <option value="">اختر مستوى النشاط</option>
-              <option value="low">قليل الحركة 🚶‍♂️</option>
-              <option value="medium">متوسط نشاط 🏃‍♂️</option>
-              <option value="high">نشاط مرتفع 🚴‍♂️</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="food">المعلومات الغذائية </label>
-            <select id="food" required>
-             <option value="">اختر نظامك الغذائي</option>
-              <option value="normal">غذاء متنوع</option>
-              <option value="vegetarian">نباتي</option>
-              <option value="low-carb">قليل الكربوهيدرات</option>
-              <option value="other">نظام آخر</option>
-            </select>
-          </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="age">العمر</label>
+              <input type="number" id="age" min="1" max="120" required />
+            </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="weight">الوزن (كجم)</label>
+              <input type="number" id="weight" min="1" max="500" step="0.1" required />
+            </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="height">الطول (سم)</label>
+              <input type="number" id="height" min="50" max="250" step="0.1" required />
+            </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="country">البلد</label>
+              <input type="text" id="country" autocomplete="country-name" required />
+            </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" autocomplete="email" required />
+            </div>
+          </section>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="goal">الهدف من النظام</label>
+              <select id="goal" required>
+                <option value="">اختر الهدف</option>
+                <option value="تنزيل الوزن">تنزيل الوزن</option>
+                <option value="زيادة الوزن">زيادة الوزن</option>
+                <option value="زيادة عضلات">زيادة عضلات</option>
+                <option value="تثبيت الوزن">تثبيت الوزن</option>
+              </select>
+            </div>
+          </section>
+        </div>
+
+        <div id="page2" hidden>
+          <h2>البيانات الصحية</h2>
+          <section class="step" hidden>
+            <div class="field">
+              <label for="diseases">الأمراض المزمنة</label>
+              <input type="text" id="diseases" />
+            </div>
+            <div class="field">
+              <label for="activity">النشاط اليومي 🏃‍♂️</label>
+              <select id="activity" required>
+                <option value="">اختر مستوى النشاط</option>
+                <option value="low">قليل الحركة 🚶‍♂️</option>
+                <option value="medium">متوسط نشاط 🏃‍♂️</option>
+                <option value="high">نشاط مرتفع 🚴‍♂️</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="food">المعلومات الغذائية</label>
+              <select id="food" required>
+                <option value="">اختر نظامك الغذائي</option>
+                <option value="normal">غذاء متنوع</option>
+                <option value="vegetarian">نباتي</option>
+                <option value="low-carb">قليل الكربوهيدرات</option>
+                <option value="other">نظام آخر</option>
+              </select>
+            </div>
             <div class="field">
               <label for="cuisine">نوع المطبخ المفضل 🥗</label>
               <select id="cuisine">
-              <option value="">اختار المطبخ🍽</option>
+                <option value="">اختار المطبخ 🍽</option>
                 <option value="arabic">عربي 🥘</option>
                 <option value="western">غربي 🍔</option>
                 <option value="french">فرنسي 🥐</option>
@@ -168,6 +168,7 @@
             </div>
           </section>
         </div>
+
         <div class="actions">
           <button type="button" id="backBtn" class="btn btn-secondary" hidden>السابق</button>
           <button type="button" id="nextBtn" class="btn">التالي</button>
@@ -185,49 +186,60 @@
       const nextBtn = document.getElementById("nextBtn");
       const saveBtn = document.getElementById("saveBtn");
       const form = document.getElementById("profileForm");
-      const fieldIds = ["name", "gender", "age", "weight", "height", "country", "email", "goal"];
+      const fieldIds = [
+        "name", "gender", "age", "weight", "height", "country", "email", "goal",
+        "diseases", "activity", "food", "cuisine"
+      ];
       let currentStep = 0;
 
       fieldIds.forEach((id) => {
-        document.getElementById(id).value = localStorage.getItem(id) || "";
+        const field = document.getElementById(id);
+        field.value = localStorage.getItem(id) || "";
       });
 
       function showStep(index) {
+        if (index < 0 || index >= steps.length) return;
+
         currentStep = index;
         steps.forEach((step, stepIndex) => {
           step.hidden = stepIndex !== currentStep;
         });
-        const currentStepElement =steps[currentStep];
-        page1.hidden =!
-          page1.contains(currentStepElement);
-        page2.hidden =!
-          page2.contains(currentStepElement);
+
+        const currentStepElement = steps[currentStep];
+        page1.hidden = !page1.contains(currentStepElement);
+        page2.hidden = !page2.contains(currentStepElement);
         stepCount.textContent = `الخطوة ${currentStep + 1} من ${steps.length}`;
         backBtn.hidden = currentStep === 0;
         nextBtn.hidden = currentStep === steps.length - 1;
         saveBtn.hidden = currentStep !== steps.length - 1;
-        steps[currentStep].querySelector("input, select").focus();
+
+        const firstField = currentStepElement.querySelector("input, select");
+        if (firstField) firstField.focus();
       }
 
-      function saveCurrentField() {
-        const fields = steps[currentStep].querySelector("input, select");
-        for (const field of fields){
-          if (field.required && ! field.reportValidity()) return false;
-      }
-        localStorage.setItem(field.id, field.value.trim());
+      function saveCurrentStep() {
+        const fields = steps[currentStep].querySelectorAll("input, select");
+
+        for (const field of fields) {
+          if (field.required && !field.reportValidity()) return false;
+        }
+
+        fields.forEach((field) => {
+          localStorage.setItem(field.id, field.value.trim());
+        });
         return true;
       }
 
       nextBtn.addEventListener("click", () => {
-        if (saveCurrentField()) showStep(currentStep + 1);
+        if (saveCurrentStep()) showStep(currentStep + 1);
       });
 
       backBtn.addEventListener("click", () => showStep(currentStep - 1));
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
-        if (!saveCurrentField()) return;
-        alert("تم حفظ البيانات بنجاح✅");
+        if (!saveCurrentStep()) return;
+        alert("تم حفظ البيانات بنجاح ✅");
       });
 
       showStep(0);
