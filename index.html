@@ -34,7 +34,7 @@
         border-radius: 10px; font-size: 16px; outline: none; transition: .3s;
       }
       input:focus, select:focus {
-        border-color: #2196f3; box-shadow: 0 0 5px rgba(33,150,243,.3);
+        border-color: #2196f3; box-shadow: 0 0 5px rgba(33,50,243,.3);
       }
       .actions { display: flex; gap: 10px; margin-top: 24px; }
       .btn {
@@ -66,15 +66,17 @@
 
     <main class="container">
       <form id="profileForm">
-        <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 9</p>
         <div id="page1">
           <h2>الملف الشخصي 👤</h2>
+          <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 9</p>
+
           <section class="step">
             <div class="field">
               <label for="name">الاسم</label>
               <input type="text" id="name" autocomplete="name" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="gender">الجنس</label>
@@ -85,36 +87,42 @@
               </select>
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="age">العمر</label>
               <input type="number" id="age" min="1" max="120" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="weight">الوزن (كجم)</label>
               <input type="number" id="weight" min="1" max="500" step="0.1" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="height">الطول (سم)</label>
               <input type="number" id="height" min="50" max="250" step="0.1" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="country">البلد</label>
               <input type="text" id="country" autocomplete="country-name" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="email">البريد الإلكتروني</label>
               <input type="email" id="email" autocomplete="email" required />
             </div>
           </section>
+
           <section class="step" hidden>
             <div class="field">
               <label for="goal">الهدف من النظام</label>
@@ -136,6 +144,7 @@
               <label for="diseases">الأمراض المزمنة</label>
               <input type="text" id="diseases" />
             </div>
+
             <div class="field">
               <label for="activity">النشاط اليومي 🏃‍♂️</label>
               <select id="activity" required>
@@ -145,6 +154,7 @@
                 <option value="high">نشاط مرتفع 🚴‍♂️</option>
               </select>
             </div>
+
             <div class="field">
               <label for="food">المعلومات الغذائية</label>
               <select id="food" required>
@@ -155,6 +165,7 @@
                 <option value="other">نظام آخر</option>
               </select>
             </div>
+
             <div class="field">
               <label for="cuisine">نوع المطبخ المفضل 🥗</label>
               <select id="cuisine">
@@ -186,21 +197,36 @@
       const nextBtn = document.getElementById("nextBtn");
       const saveBtn = document.getElementById("saveBtn");
       const form = document.getElementById("profileForm");
+
       const fieldIds = [
-        "name", "gender", "age", "weight", "height", "country", "email", "goal",
-        "diseases", "activity", "food", "cuisine"
+        "name",
+        "gender",
+        "age",
+        "weight",
+        "height",
+        "country",
+        "email",
+        "goal",
+        "diseases",
+        "activity",
+        "food",
+        "cuisine"
       ];
+
       let currentStep = 0;
 
       fieldIds.forEach((id) => {
         const field = document.getElementById(id);
-        field.value = localStorage.getItem(id) || "";
+        if (field) {
+          field.value = localStorage.getItem(id) || "";
+        }
       });
 
       function showStep(index) {
         if (index < 0 || index >= steps.length) return;
 
         currentStep = index;
+
         steps.forEach((step, stepIndex) => {
           step.hidden = stepIndex !== currentStep;
         });
@@ -208,6 +234,7 @@
         const currentStepElement = steps[currentStep];
         page1.hidden = !page1.contains(currentStepElement);
         page2.hidden = !page2.contains(currentStepElement);
+
         stepCount.textContent = `الخطوة ${currentStep + 1} من ${steps.length}`;
         backBtn.hidden = currentStep === 0;
         nextBtn.hidden = currentStep === steps.length - 1;
@@ -218,27 +245,37 @@
       }
 
       function saveCurrentStep() {
-        const fields = steps[currentStep].querySelectorAll("input, select");
+        const currentFields = steps[currentStep].querySelectorAll("input, select");
 
-        for (const field of fields) {
-          if (field.required && !field.reportValidity()) return false;
+        for (const field of currentFields) {
+          if (field.required && !field.reportValidity()) {
+            field.focus();
+            return false;
+          }
         }
 
-        fields.forEach((field) => {
+        currentFields.forEach((field) => {
           localStorage.setItem(field.id, field.value.trim());
         });
+
         return true;
       }
 
       nextBtn.addEventListener("click", () => {
-        if (saveCurrentStep()) showStep(currentStep + 1);
+        if (saveCurrentStep()) {
+          showStep(currentStep + 1);
+        }
       });
 
-      backBtn.addEventListener("click", () => showStep(currentStep - 1));
+      backBtn.addEventListener("click", () => {
+        showStep(currentStep - 1);
+      });
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+
         if (!saveCurrentStep()) return;
+
         alert("تم حفظ البيانات بنجاح ✅");
       });
 
