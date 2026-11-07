@@ -230,11 +230,11 @@
       });
        function updateReview (){
          reviewContent.replaceChildren();
-         profileFields.forEach([id=>label]{
-      const field =document.getElementById("id");
+         profileFields.forEach(([id,label])=>{
+      const field =document.getElementById(id);
       const value =field.value.trim()||"-";
       const selectedText =field.tagName ==="SELECT"?
-        field.options[field.selectedIndex]?.text(value ||)
+        field.options[field.selectedIndex]?.text || value
                                                  :value;
       const item =document.createElement("div");
       const title =document.createElement("strong");
@@ -269,10 +269,6 @@
         const firstField=currentStepElement.querySelector("input,select");
         if(firstField)
           firstField.focus();
-      {
-
-        const firstField = currentStepElement.querySelector("input, select");
-        if (firstField) firstField.focus();
       }
 
       function saveCurrentStep() {
