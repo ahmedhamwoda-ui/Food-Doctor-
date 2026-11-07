@@ -36,6 +36,9 @@
       input:focus, select:focus {
         border-color: #2196f3; box-shadow: 0 0 5px rgba(33,50,243,.3);
       }
+      .review-list { display: grid; gap: 10px; }
+      .review-item { display: flex; justify-content: space-between; gap: 12px; }
+      .review-item span { overflow-wrap: anywhere; text-align: left; }
       .actions { display: flex; gap: 10px; margin-top: 24px; }
       .btn {
         flex: 1; padding: 14px; background: #2196f3; color: white; border: none;
@@ -66,10 +69,10 @@
 
     <main class="container">
       <form id="profileForm">
-          <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 10</p>
-         
+        <p class="step-count" id="stepCount" aria-live="polite">الخطوة 1 من 10</p>
+
         <div id="page1">
-            <h2>الملف الشخصي 👤</h2>
+          <h2>الملف الشخصي 👤</h2>
           <section class="step">
             <div class="field">
               <label for="name">الاسم</label>
@@ -135,13 +138,11 @@
               </select>
             </div>
           </section>
-            <section class="step" hidden>
-              <h2>مراجعة الملف الشخصي</h2>
-              <p>راجع البيانات قبل الانتقال</p>
-              <div id="reviewContent"
-                class="review-list">
-              </div>
-            </section>
+          <section class="step" hidden>
+            <h2>مراجعة الملف الشخصي</h2>
+            <p>راجع البيانات قبل الانتقال</p>
+            <div id="reviewContent" class="review-list"></div>
+          </section>
         </div>
 
         <div id="page2" hidden>
@@ -149,7 +150,7 @@
           <section class="step" hidden>
             <div class="field">
               <label for="diseases">الأمراض المزمنة</label>
-              <input type="text" id="diseases"/>
+              <input type="text" id="diseases" />
             </div>
 
             <div class="field">
@@ -204,20 +205,22 @@
       const nextBtn = document.getElementById("nextBtn");
       const saveBtn = document.getElementById("saveBtn");
       const form = document.getElementById("profileForm");
+      const reviewContent = document.getElementById("reviewContent");
+
+      const profileFields = [
+        ["name", "الاسم"],
+        ["gender", "الجنس"],
+        ["age", "العمر"],
+        ["weight", "الوزن (كجم)"],
+        ["height", "الطول (سم)"],
+        ["country", "البلد"],
+        ["email", "البريد الإلكتروني"],
+        ["goal", "الهدف من النظام"]
+      ];
 
       const fieldIds = [
-        "name",
-        "gender",
-        "age",
-        "weight",
-        "height",
-        "country",
-        "email",
-        "goal",
-        "diseases",
-        "activity",
-        "food",
-        "cuisine"
+        "name", "gender", "age", "weight", "height", "country", "email",
+        "goal", "diseases", "activity", "food", "cuisine"
       ];
 
       let currentStep = 0;
@@ -228,30 +231,32 @@
           field.value = localStorage.getItem(id) || "";
         }
       });
-       function updateReview (){
-         reviewContent.replaceChildren();
-         profileFields.forEach(([id,label])=>{
-      const field =document.getElementById(id);
-      const value =field.value.trim()||"-";
-      const selectedText =field.tagName ==="SELECT"?
-        field.options[field.selectedIndex]?.text || value
-                                                 :value;
-      const item =document.createElement("div");
-      const title =document.createElement("strong");
-      const content =document.createElement("span");
-      item.className="review-item";
-      title.textContent=label;
-      content.textContent=selectedText;
-      item.append(title,content);
-      reviewContent.append(item);});
+
+      function updateReview() {
+        reviewContent.replaceChildren();
+
+        profileFields.forEach(([id, label]) => {
+          const field = document.getElementById(id);
+          const value = field.value.trim() || "-";
+          const selectedText = field.tagName === "SELECT"
+            ? field.options[field.selectedIndex]?.text || value
+            : value;
+          const item = document.createElement("div");
+          const title = document.createElement("strong");
+          const content = document.createElement("span");
+
+          item.className = "review-item";
+          title.textContent = label;
+          content.textContent = selectedText;
+          item.append(title, content);
+          reviewContent.append(item);
+        });
       }
-      
 
       function showStep(index) {
         if (index < 0 || index >= steps.length) return;
 
         currentStep = index;
-
         steps.forEach((step, stepIndex) => {
           step.hidden = stepIndex !== currentStep;
         });
@@ -264,11 +269,13 @@
         backBtn.hidden = currentStep === 0;
         nextBtn.hidden = currentStep === steps.length - 1;
         saveBtn.hidden = currentStep !== steps.length - 1;
-        if (currentStep ==8)
+
+        if (currentStep === 8) {
           updateReview();
-        const firstField=currentStepElement.querySelector("input,select");
-        if(firstField)
-          firstField.focus();
+        }
+
+        const firstField = currentStepElement.querySelector("input, select");
+        if (firstField) firstField.focus();
       }
 
       function saveCurrentStep() {
@@ -300,9 +307,7 @@
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
-
         if (!saveCurrentStep()) return;
-
         alert("تم حفظ البيانات بنجاح ✅");
       });
 
