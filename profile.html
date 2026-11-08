@@ -239,28 +239,28 @@
     <div class="page">
       <header class="topbar">
         <div class="brand">
-          <div class="brand-mark">🥗</div>
+          <div class="brand-mark" aria-hidden="true">🥗</div>
           <h1>طبيب الغذاء</h1>
         </div>
 
-        <div class="nav-icons">
+        <nav class="nav-icons" aria-label="التنقل">
           <a href="index.html" class="icon-btn" aria-label="الرئيسية">🏠</a>
-          <span class="icon-btn" aria-label="الملف الشخصي">👤</span>
-        </div>
+          <a href="profile.html" class="icon-btn" aria-label="الملف الشخصي" aria-current="page">👤</a>
+        </nav>
       </header>
 
       <main class="profile-card">
         <div class="profile-header">
-          <div class="avatar" id="avatar-letter">👤</div>
+          <div class="avatar" id="avatar-letter" aria-hidden="true">👤</div>
 
           <div class="profile-user">
             <h2 id="name-display">غير محدد</h2>
             <p class="subtitle">مستخدم جديد</p>
-            <div class="status-tag">نشط الآن</div>
+            <div class="status-tag">الملف الشخصي</div>
           </div>
         </div>
 
-        <div class="stats">
+        <div class="stats" aria-label="ملخص البيانات">
           <div class="stat-box">
             <strong id="age-box">0</strong>
             <span>العمر</span>
@@ -275,8 +275,8 @@
           </div>
         </div>
 
-        <div class="section">
-          <h3 class="section-title">معلومات شخصية</h3>
+        <section class="section" aria-labelledby="personal-info-title">
+          <h3 class="section-title" id="personal-info-title">معلومات شخصية</h3>
           <div class="info-list">
             <div class="info-item">
               <span class="label">الاسم</span>
@@ -303,7 +303,7 @@
               <span class="value" id="country">غير محدد</span>
             </div>
             <div class="info-item">
-              <span class="label">البريد الإلكتروني@</span>
+              <span class="label">البريد الإلكتروني</span>
               <span class="value" id="email">غير محدد</span>
             </div>
             <div class="info-item">
@@ -311,72 +311,74 @@
               <span class="value" id="goal">غير محدد</span>
             </div>
           </div>
-            <div class="section">
-              <h3 class="section-title">المعلومات الصحية</h3>
-              <div class="info-list">
-                <div class="info-item">
-                  <span class="label">الأمراض المزمنة</span>
-                  <span class="value" id="diseases">لا يوجد</span>
-                </div>
-                <div class="info-item">
-                  <span class="label">النشاط اليومي 🏃‍♂️</span>
-                  <span class="value" id="activity">غير محدد</span>
-                </div>
-                <div class="info-item">
-                  <span class="label">النظام الغذائي</span>
-                  <span class="value" id="food">غير محدد</span>
-                </div>
-                <div class="info-item">
-                  <span class="label">المطبخ المفضل</span>
-                  <span class="value" id="cuisine">غير محدد</span>
-                </div>
+        </section>
+
+        <section class="section" aria-labelledby="health-info-title">
+          <h3 class="section-title" id="health-info-title">المعلومات الصحية</h3>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="label">الأمراض المزمنة</span>
+              <span class="value" id="diseases">لا يوجد</span>
+            </div>
+            <div class="info-item">
+              <span class="label">النشاط اليومي 🏃‍♂️</span>
+              <span class="value" id="activity">غير محدد</span>
+            </div>
+            <div class="info-item">
+              <span class="label">النظام الغذائي</span>
+              <span class="value" id="food">غير محدد</span>
+            </div>
+            <div class="info-item">
+              <span class="label">المطبخ المفضل</span>
+              <span class="value" id="cuisine">غير محدد</span>
+            </div>
+          </div>
+        </section>
+
         <div class="actions">
           <a href="index.html" class="btn-back">تعديل البيانات</a>
         </div>
-              </div>
-            </div>
       </main>
     </div>
 
     <script>
-      window.addEventListener('load',function (){
-        const getValue = (key,fallback) =>{
-          const value =localStorage.getItem(key)
-          return value !== null && value !==''?
-            value 
-            :fallback;
+      window.addEventListener("DOMContentLoaded", () => {
+        const getValue = (key, fallback) => {
+          const value = localStorage.getItem(key);
+          return value !== null && value.trim() !== "" ? value.trim() : fallback;
         };
-        const name = getValue('name', 'غير محدد');
-        const gender = getValue('gender','غير محدد');
-        const age = getValue('age','0');
-        const weight = getValue('weight','0');
-        const height = getValue('height','0');
-        const country = getValue('country','غير محدد');
-        const email = getValue('email','غير محدد');
-        const goal = getValue('goal','غير محدد');
-        const diseases = getValue('diseases','غير محدد');
-        const activity = getValue('activity','غير محدد');
-        const food = getValue('food','غير محدد');
-        const cuisine = getValue('cuisine','غير محدد');
-        document.getElementById('name').textContent = name;
-        document.getElementById('name-display').textContent = name;
-        document.getElementById('gender').textContent = gender;
-        document.getElementById('age').textContent = age+'سنة';
-        document.getElementById('weight').textContent = weight+'كجم';
-        document.getElementById('height').textContent = height+'سم';
-        document.getElementById('country').textContent = country;
-        document.getElementById('email').textContent = email;
-        document.getElementById('goal').textContent = goal;
-        document.getElementById('diseases').textContent = diseases;
-        document.getElementById('activity').textContent = activity;
-        document.getElementById('food').textContent = food;
-        document.getElementById('cuisine').textContent = cuisine;
-        document.getElementById('age-box').textContent = age;
-        document.getElementById('weight-box').textContent = weight;
-        document.getElementById('height-box').textContent = height;
-        document.getElementById('avatar-letter').textContent =
-          name !=='غير محدد'?
-          name.charAt(0):'👤';
+
+        const name = getValue("name", "غير محدد");
+        const gender = getValue("gender", "غير محدد");
+        const age = getValue("age", "0");
+        const weight = getValue("weight", "0");
+        const height = getValue("height", "0");
+        const country = getValue("country", "غير محدد");
+        const email = getValue("email", "غير محدد");
+        const goal = getValue("goal", "غير محدد");
+        const diseases = getValue("diseases", "لا يوجد");
+        const activity = getValue("activity", "غير محدد");
+        const food = getValue("food", "غير محدد");
+        const cuisine = getValue("cuisine", "غير محدد");
+
+        document.getElementById("name").textContent = name;
+        document.getElementById("name-display").textContent = name;
+        document.getElementById("gender").textContent = gender;
+        document.getElementById("age").textContent = `${age} سنة`;
+        document.getElementById("weight").textContent = `${weight} كجم`;
+        document.getElementById("height").textContent = `${height} سم`;
+        document.getElementById("country").textContent = country;
+        document.getElementById("email").textContent = email;
+        document.getElementById("goal").textContent = goal;
+        document.getElementById("diseases").textContent = diseases;
+        document.getElementById("activity").textContent = activity;
+        document.getElementById("food").textContent = food;
+        document.getElementById("cuisine").textContent = cuisine;
+        document.getElementById("age-box").textContent = age;
+        document.getElementById("weight-box").textContent = weight;
+        document.getElementById("height-box").textContent = height;
+        document.getElementById("avatar-letter").textContent =
+          name !== "غير محدد" ? name.charAt(0) : "👤";
       });
     </script>
   </body>
