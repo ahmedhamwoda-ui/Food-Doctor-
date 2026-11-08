@@ -96,55 +96,54 @@
     <header class="topbar">
       <div class="brand">
         <div class="brand-mark">🥗</div>
-      <h1>طبيب الغذاء</h1>
+        <h1>طبيب الغذاء</h1>
+      </div>
       <div class="nav-icon">
         <a href="chat.html" class="icon-btn">💬</a>
         <a href="profile.html" class="icon-btn">👤</a>
       </div>
     </header>
-    <div class="container">
-      <h2 id="welcome">مرحبا بك</h2>
-      <div class="info-box">
-        <p><b>الاسم:</b><span id="name"></span></p>
-        <p><b>الجنس:</b><span id="gender"></span></p>
-        <p><b>العمر:</b><span id="age"></span></p>
-        <p><b>الهدف:</b><span id="goal"></span></p>
-      </div>
-      <div class="plan-box">
-        <h3>الجدول الغذائي الخاص بك</h3>
-        <p id="plan">تحضير جدول غذائي</p>
-      </div>
-      <button type="button" class="btn"
-        onclick="localStorage.clear();
-        window.location.href='index.html'">
-      </button>
-    </div>
-    <script>
-      const name=localStorage.getItem("name")||"زائر";
-      const gender=localStorage.getItem("gender")||"غير محدد";
-      const age=localStorage.getItem("age")||"غير محدد";
-      const goal=localStorage.getItem("goal")||"";
-      document.getElementById("welcome").innerText= "مرحبا"+name;
-      document.getElementById("name").innerText=name;
-      document.getElementById("gender").innerText=gender;
-      document.getElementById("age").innerText=age;
-      document.getElementById("goal").innerText=goal;
-      let plan="";
-      if(goal==="تنزيل الوزن"){
-        plan="1.شرب ٢لتر ماء يوميا/n"+
-             "2.تقليل السكر والخبز/n"+
-             "3.الجري 30 دقيقة 4 مرات في الاسبوع";}
-      else if(goal==="زيادة الوزن"){
-        plan="1.زيادة معدل البروتين/n"+
-             "2.اكثر من النشويات/n"+
-             "3.شرب الماء 3 لي 4 لتر في اليوم";}
-      else if(goal==="تثبيت الوزن"){
-        plan="1. 8 ساعات نوم/n"+
-             "2.تمارين متنوعة/n"+
-             "3. 3 وجبات في اليوم";}
-      else{
-        plan="لم يتم تحديد الهدف بعد";}
-      document.getElementById("plan").innerText=plan;
-    </script>
+    <main class="container">
+      <section class="result-section">
+        <h2>خطتك الغذائية</h2>
+        <p id="welcome">مرحبآ بك</p>
+        <div class="calories-box">
+          <h3>احتياجك اليومي للسعرات</h3>
+          <p id="calories">سيتم حساب السعرات</p>
+        </div>
+        <div class="goal-box">
+          <h3>هدفك الغذائي</h3>
+          <p id="goal">لم يتم تحديد الهدف</p>
+        </div>
+      </section>
+
+      <section class="diet-section">
+        <h2>نظامك الغذائي 🍽</h2>
+        <div class="meal-box">
+          <h3>الأفطار 🌄</h3>
+          <p id="breakfast">سيتم تحديد الوجبة</p>
+        </div>
+        <div class="meal-box">
+          <h3>الغداء ☀️</h3>
+          <p id="lunch">سيتم تحديد الوجبة</p>
+        </div>
+        <div class="meal-box">
+          <h3>العشاء 🌙</h3>
+          <p id="dinner">سيتم تحديد الوجبة</p>
+        </div>
+        <div class="meal-box">
+          <h3>الوجبات الخفيفة 🍎</h3>
+          <p id="snakes">سيتم تحديد الوجبة</p>
+        </div>
+      </section>
+      <section class="profile-section">
+        <h2>ملفك الشخصي ومتابعتك</h2>
+        <p>يمكنك مراجعة بياناتك الشخصية 
+        ومتابعة جدولك الغذائي وتقدمه نحو هدفك</p>
+        <button type="button" class="btn"
+          onclick="window.location.href='profile.html'">
+        </button>
+      </section>
+    </main> 
   </body>
 </html>
