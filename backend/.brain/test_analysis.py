@@ -1,4 +1,4 @@
-from brain.analysis import analyze_user
+from analysis import analyze_user
 user = {
   "age" : 25,
 "weight" : 80,
